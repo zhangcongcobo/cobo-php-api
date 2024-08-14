@@ -850,6 +850,21 @@ class MPCClient
         return $this->request("POST", "/v1/custody/mpc/babylon/replace_staking_fee/", $params);
     }
 
+    function babylonDropStaking(string $requestId, string $relatedRequestId, string $feeRate, BigInteger $maxStakingFee = null)
+    {
+        $params = [
+            "request_id" => $requestId,
+            "related_request_id" => $relatedRequestId,
+            "fee_rate" => $feeRate,
+        ];
+
+        if ($maxStakingFee) {
+            $params = array_merge($params, ["max_staking_fee" => $maxStakingFee]);
+        }
+
+        return $this->request("POST", "/v1/custody/mpc/babylon/drop_staking/", $params);
+    }
+
     function babylonBroadcastStakingTransaction(string $requestId)
     {
         $params = [
