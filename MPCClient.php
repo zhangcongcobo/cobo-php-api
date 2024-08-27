@@ -865,6 +865,37 @@ class MPCClient
         return $this->request("POST", "/v1/custody/mpc/babylon/drop_staking/", $params);
     }
 
+    function babylonUnbonding(string $requestId, string $stakingRequestId)
+    {
+        $params = [
+            "request_id" => $requestId,
+            "staking_request_id" => $stakingRequestId,
+        ];
+
+        return $this->request("POST", "/v1/custody/mpc/babylon/unbonding/", params);
+    }
+
+
+    function babylonWithdraw(string $requestId, string $feeRate, BigInteger $maxFeeAmount=null, string $unbondingRequestId=null, string $stakingRequestId=null)
+    {
+        $params = [
+            "request_id" => $requestId,
+            "fee_rate" => $feeRate,
+        ];
+
+        if ($maxFeeAmount) {
+            $params = array_merge($params, ["max_fee_amount" => $maxFeeAmount]);
+        }
+        if ($unbondingRequestId) {
+            $params = array_merge($params, ["unbonding_request_id" => $unbondingRequestId]);
+        }
+        if ($stakingRequestId) {
+            $params = array_merge($params, ["staking_request_id" => $stakingRequestId]);
+        }
+        return $this->request("POST", "/v1/custody/mpc/babylon/withdraw/", params);
+    }
+
+
     function babylonBroadcastStakingTransaction(string $requestId)
     {
         $params = [
