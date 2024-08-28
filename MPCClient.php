@@ -660,7 +660,7 @@ class MPCClient
             $params = array_merge($params, ["extra_parameters" => $extraParameters]);
         }
 
-        return $this->request("GET", "/v1/custody/mpc/estimate_fee/", $params);
+        return $this->request("POST", "/v1/custody/mpc/estimate_fee/", $params);
     }
 
     /***
