@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.2.30] (2024-09-02)
+[v0.2.30]: https://github.com/CoboGlobal/cobo-php-api/compare/v0.2.29...v0.2.30
+
+### Added
+- Add New API `babylonUnbonding` and `babylonWithdraw` for MPC Wallet. https://github.com/CoboGlobal/cobo-php-api/pull/72
+- The method of the `estimateFee` API for the MPC wallet has been changed from GET to POST. https://github.com/CoboGlobal/cobo-php-api/pull/73
+
 ## [v0.2.29] (2024-08-14)
 [v0.2.29]: https://github.com/CoboGlobal/cobo-php-api/compare/v0.2.28...v0.2.29
 
